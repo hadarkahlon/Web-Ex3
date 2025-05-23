@@ -1,0 +1,167 @@
+body {
+  background: linear-gradient(to right, #a2c4e0, #d7bde2); /* תכלת-סגלגל עדין */
+  color: #2c2c2c;
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin-top: 30px;
+  color: #3b3b3b;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.artist-container {
+ 
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px 50px;
+  max-width: 100%;
+  padding: 30px 20px;
+}
+
+.artist {
+  width: 180px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+  border-radius: 20px;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px black;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.artist:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+
+/* רקע לפי אות */
+.artist.o {
+  background-image: url("images/omer.png");
+}
+.artist.a {
+  background-image: url("images/agam.png");
+}
+.artist.u {
+  background-image: url("images/osher.png");
+}
+.artist.n {
+  background-image: url("images/nasrin.png");
+}
+.artist.d {
+  background-image: url("images/ness.png");
+}
+.artist.s {
+  background-image: url("images/sason.png");
+}
+.artist.y {
+  background-image: url("images/yasmin.png");
+}
+.artist.e {
+  background-image: url("images/eden.png");
+}
+
+
+/* כפתור לחוץ */
+.pressed {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* עיצוב לאות עצמה */
+.artist .key {
+  font-size: 2rem;
+  z-index: 1;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+
+/*.artist .label {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 38px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #2c2c2c;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 4px 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  word-wrap: break-word;         
+  white-space: normal;          
+  overflow-wrap: break-word;
+  direction: rtl;
+}*/
+
+.artist-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* מרווח בין הכפתור לכיתוב */
+  position: relative;
+
+}
+
+/* עיצוב לכיתוב שמתחת לאות */
+.label {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 400;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #2c2c2c;
+  border-radius: 10px;
+  padding: 4px 8px;
+  text-align: center;
+  width: 180px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  white-space: normal;
+  overflow-wrap: break-word;
+  direction: rtl;
+}
+.artist-wrapper:hover .label {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+@media (max-width: 600px) {
+  .artist {
+    width: 100%;
+    max-width: 300px;
+    height: 180px;
+  }
+
+  .artist-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
