@@ -68,3 +68,37 @@ document.addEventListener("keydown", (event) => {
     setTimeout(() => button.classList.remove("pressed"), 150);
   }
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+  // Create a new audio element for the intro sound
+  const intro = new Audio("sounds/kahal.mp3");
+
+  // Try to play the intro sound immediately
+  intro.play().catch(() => {
+    // If playback is blocked by the browser (due to autoplay restrictions), show an overlay
+
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "rgba(0,0,0,0.8)";
+    overlay.style.display = "flex";
+    overlay.style.justifyContent = "center";
+    overlay.style.alignItems = "center";
+    overlay.style.color = "white";
+    overlay.style.fontSize = "24px";
+    overlay.style.zIndex = "9999";
+    overlay.innerHTML = `<div>Click to start the experience 🎵</div>`;
+
+    // When the user clicks anywhere on the overlay, play the intro sound and remove the overlay
+    overlay.addEventListener("click", () => {
+      intro.play();
+      document.body.removeChild(overlay);
+    });
+
+    // Add the overlay to the page
+    document.body.appendChild(overlay);
+  });
+});
